@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found — Ben Tye</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#1F3864">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Source+Serif+4:opsz,wght@8..60,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#F2F4F7;--ink:#10192E;--navy:#1F3864;--slate:#6B7789;--signal:#C81D6B;--rule:#D8DEE7}
+*{box-sizing:border-box}
+body{
+  margin:0;min-height:100vh;background:var(--paper);color:var(--ink);
+  font-family:'Source Serif 4',Georgia,serif;
+  display:flex;align-items:center;justify-content:center;
+  padding:clamp(24px,6vw,64px);text-align:center;
+}
+.eyebrow{
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--slate);margin:0 0 20px;
+}
+.eyebrow b{color:var(--signal);font-weight:400}
+h1{
+  font-family:'Archivo',system-ui,sans-serif;font-weight:700;
+  font-size:clamp(30px,5vw,52px);letter-spacing:-.03em;line-height:1.08;
+  margin:0 0 16px;
+}
+p{margin:0 auto 32px;max-width:40ch;font-size:17px;line-height:1.6;color:#3A465F}
+a.btn{
+  font-family:'JetBrains Mono',monospace;font-size:12.5px;letter-spacing:.06em;
+  text-transform:uppercase;text-decoration:none;padding:13px 24px;
+  border:1px solid var(--navy);background:var(--navy);color:#fff;display:inline-block;
+  transition:background .16s ease,transform .16s ease;
+}
+a.btn:hover{background:var(--signal);border-color:var(--signal);transform:translateY(-2px)}
+a.btn:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
+svg{display:block;margin:0 auto 30px;width:70px;height:auto}
+.sole{fill:none;stroke:var(--rule);stroke-width:3}
+.stop{fill:var(--signal)}
+</style>
+</head>
+<body>
+  <main>
+    <svg viewBox="0 0 260 460" role="presentation">
+      <ellipse class="sole" cx="72.5" cy="55" rx="24" ry="28"/>
+      <ellipse class="sole" cx="114.5" cy="48.5" rx="16.5" ry="20"/>
+      <ellipse class="sole" cx="144.5" cy="52.5" rx="15" ry="19"/>
+      <ellipse class="sole" cx="171.5" cy="62" rx="14" ry="17.5"/>
+      <ellipse class="sole" cx="195" cy="78" rx="12.5" ry="15"/>
+      <path class="sole" d="M125,424 C168,432 197,420 209,359 C215,325 206,305 203,251
+        C200,215 194,210 197,150 C199,120 203,110 192.5,82 C170,72 110,78 87.5,89
+        C70,96 62,112 62,129.5 C62,145 71,145 83,197 C92,235 98,240 95,291.5
+        C93,330 83,370 83,399.5 C83,415 100,428 125,424 Z"/>
+      <circle class="stop" cx="137" cy="389" r="14"/>
+    </svg>
+    <p class="eyebrow"><b>///</b> Error 404</p>
+    <h1>The trace ends here</h1>
+    <p>This page does not exist. Head back to the start and the route is clearer.</p>
+    <a class="btn" href="/">Back to the homepage</a>
+  </main>
+</body>
+</html>
