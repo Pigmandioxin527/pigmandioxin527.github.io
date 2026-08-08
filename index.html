@@ -232,6 +232,55 @@ section{padding:clamp(56px,8vw,104px) 0;border-top:1px solid var(--rule)}
 footer{padding:26px 0 40px;background:var(--navy)}
 footer .fin{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;color:#8FA1BF}
 
+/* ---------- project image grid ---------- */
+.media{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));
+  gap:1px;background:var(--rule);border-bottom:1px solid var(--rule);
+}
+.shot{margin:0;background:var(--card);cursor:zoom-in;border:none;padding:0;text-align:left;width:100%;font:inherit;display:block}
+.shot .frame{
+  position:relative;aspect-ratio:4/3;overflow:hidden;background:#EDF0F4;display:block;
+}
+.shot img{
+  width:100%;height:100%;object-fit:cover;display:block;
+  transition:transform .35s ease,filter .35s ease;
+}
+.shot:hover img,.shot:focus-visible img{transform:scale(1.045)}
+.shot .frame::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(16,25,46,.22),transparent 45%);
+  opacity:0;transition:opacity .3s ease;
+}
+.shot:hover .frame::after{opacity:1}
+.shot figcaption{
+  font-family:var(--mono);font-size:10.5px;line-height:1.45;letter-spacing:.02em;
+  color:var(--slate);padding:11px 13px 13px;
+}
+.shot figcaption b{display:block;color:var(--ink);font-weight:500;margin-bottom:3px}
+.shot:hover figcaption b{color:var(--signal)}
+.shot:focus-visible{outline:2px solid var(--signal);outline-offset:-2px}
+
+/* ---------- lightbox ---------- */
+.lb{
+  position:fixed;inset:0;z-index:200;background:rgba(10,16,30,.94);
+  display:none;align-items:center;justify-content:center;
+  padding:clamp(16px,4vw,52px);cursor:zoom-out;
+}
+.lb.on{display:flex}
+.lb figure{margin:0;max-width:1100px;width:100%;text-align:center}
+.lb img{max-width:100%;max-height:76vh;object-fit:contain;display:block;margin:0 auto;background:#fff}
+.lb figcaption{
+  font-family:var(--mono);font-size:12px;line-height:1.6;color:#B9C5D8;
+  margin-top:18px;max-width:62ch;margin-left:auto;margin-right:auto;
+}
+.lb figcaption b{color:#fff;font-weight:500}
+.lb .x{
+  position:absolute;top:18px;right:22px;background:none;border:1px solid rgba(255,255,255,.35);
+  color:#fff;font-family:var(--mono);font-size:12px;letter-spacing:.08em;
+  padding:9px 15px;cursor:pointer;
+}
+.lb .x:hover{background:var(--signal);border-color:var(--signal)}
+
 /* editable placeholder marker — delete this rule once everything is filled in */
 .todo{background:rgba(200,29,107,.1);border-bottom:1px dashed var(--signal);padding:0 3px}
 </style>
@@ -354,6 +403,32 @@ footer .fin{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:
         <h3>Tuning a £2 sensor with the structure printed around it</h3>
         <p>Diabetic neuropathy removes the warning. Patients cannot feel the sustained pressure that turns into a foot ulcer, and the systems that could tell them are laboratory-bound or cost thousands. I asked whether an ordinary force-sensitive resistor could be made good enough by changing the 3D printed structure sitting on top of it.</p>
       </div>
+      <div class="media">
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/platform-render.jpg" alt="Rendered view of the anatomically conformal 3D printed plantar platform." loading="lazy" decoding="async"></span>
+          <figcaption><b>Wearable platform</b>Modelled around a LiDAR scan of my own foot</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/contact-geometry.jpg" alt="Sliced print preview of the removable sensing plate showing the eight raised sensor contact geometries." loading="lazy" decoding="async"></span>
+          <figcaption><b>Contact geometry</b>Sliced for print, TPU 90A, gyroid infill</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/pcb-layout.jpg" alt="Custom PCB layout showing the ESP32-S3 footprint, multiplexer and eight fixed resistor and FSR input pairs." loading="lazy" decoding="async"></span>
+          <figcaption><b>Custom PCB</b>ESP32-S3, 74HC4051 MUX, 8 divider inputs</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/calibration-jig.jpg" alt="Rendered calibration jig designed to apply controlled vertical loading to an embedded sensor test cube." loading="lazy" decoding="async"></span>
+          <figcaption><b>Calibration jig</b>Controlled vertical loading, 2.5 kg steps</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/load-heatmap.jpg" alt="Normalised heatmap of static plantar load distribution across the eight sensing locations." loading="lazy" decoding="async"></span>
+          <figcaption><b>Static load map</b>Normalised distribution, 20 s standing trial</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/cop-trajectory.jpg" alt="Mean centre of pressure trajectories for dome and puck geometries plotted over a foot outline." loading="lazy" decoding="async"></span>
+          <figcaption><b>CoP trajectory</b>Dome vs puck, averaged across steps</figcaption>
+        </button>
+      </div>
       <div class="proj-body">
         <div class="spec">
           <dl>
@@ -394,6 +469,24 @@ footer .fin{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:
         <p class="proj-tag">Pair project · Embedded sensing &amp; computer vision</p>
         <h3>Smart Pillbox System</h3>
         <p>Pill organisers and phone alarms remind you. None of them know whether you actually took anything. This prototype tries to verify removal instead of trusting it, using a camera to count what is left and a load cell to notice what left.</p>
+      </div>
+      <div class="media">
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/pillbox-prototype.jpg" alt="Photograph of the assembled Smart Pillbox prototype: 3D printed enclosure, Raspberry Pi, HX711 breakout and breadboard wiring." loading="lazy" decoding="async"></span>
+          <figcaption><b>The prototype</b>Printed enclosure, Pi 3, HX711, HQ camera</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/pill-detection.jpg" alt="Camera image after YOLOv8 inference, with bounding boxes and confidence scores over 31 tablets." loading="lazy" decoding="async"></span>
+          <figcaption><b>Live inference</b>31 tablets detected on-device via NCNN</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/training-curves.jpg" alt="Training curves showing precision, recall, mAP50 and mAP50-95 rising across 80 epochs." loading="lazy" decoding="async"></span>
+          <figcaption><b>Training</b>Precision, recall and mAP over 80 epochs</figcaption>
+        </button>
+        <button class="shot" type="button">
+          <span class="frame"><img src="img/confusion-matrix.jpg" alt="Normalised confusion matrix for the tablet, capsule and background classes." loading="lazy" decoding="async"></span>
+          <figcaption><b>Confusion matrix</b>Tablets and capsules, normalised</figcaption>
+        </button>
       </div>
       <div class="proj-body">
         <div class="spec">
@@ -584,6 +677,15 @@ footer .fin{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:
   </div>
 </footer>
 
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Enlarged project image">
+  <button class="x" type="button" id="lbClose">Close ✕</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
 <script>
 (function(){
   var els = document.querySelectorAll('.reveal');
@@ -597,6 +699,42 @@ footer .fin{border-top:1px solid rgba(255,255,255,.16);padding-top:20px;display:
     });
   },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
   els.forEach(function(e){io.observe(e)});
+})();
+
+/* lightbox */
+(function(){
+  var lb    = document.getElementById('lb'),
+      lbImg = document.getElementById('lbImg'),
+      lbCap = document.getElementById('lbCap'),
+      last  = null;
+
+  function open(shot){
+    var img = shot.querySelector('img'),
+        cap = shot.querySelector('figcaption');
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCap.innerHTML = cap.innerHTML;
+    lb.classList.add('on');
+    document.body.style.overflow = 'hidden';
+    last = shot;
+    document.getElementById('lbClose').focus();
+  }
+  function close(){
+    lb.classList.remove('on');
+    lbImg.src = '';
+    document.body.style.overflow = '';
+    if(last){ last.focus(); last = null; }
+  }
+
+  document.querySelectorAll('.shot').forEach(function(s){
+    s.addEventListener('click', function(){ open(s); });
+  });
+  lb.addEventListener('click', function(e){
+    if(e.target === lb || e.target.id === 'lbClose' || e.target.tagName === 'FIGURE') close();
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && lb.classList.contains('on')) close();
+  });
 })();
 </script>
 </body>

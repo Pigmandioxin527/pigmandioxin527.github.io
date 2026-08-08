@@ -8,6 +8,7 @@ A static site. No build step, no dependencies, no framework. Every file is plain
 | --- | --- |
 | `index.html` | The whole site — markup, styles and script in one file |
 | `404.html` | Not-found page, styled to match |
+| `img/` | Ten project photographs, renders and result figures, pulled from your own reports |
 | `og-image.png` | Social preview card (1200×630) shown when the link is shared |
 | `favicon.svg` | Browser tab icon |
 | `robots.txt` | Allows search engines to index the site |
@@ -37,7 +38,7 @@ Then:
 
 1. Create a GitHub account if you do not have one
 2. Create a new **public** repository named `bentye.github.io` (substitute your username)
-3. Upload every file in this folder to the root of that repository
+3. Upload every file in this folder to the root of that repository. The `img` folder must go up too, keeping its name and staying one level down — the page looks for `img/platform-render.jpg` and so on. GitHub's web uploader accepts a dragged folder and preserves the structure, so drag `img` in as a folder alongside the loose files
 4. Go to **Settings → Pages**, set Source to `Deploy from a branch`, branch `main`, folder `/ (root)`, and Save
 5. Wait a minute or two. The site appears at `https://bentye.github.io`
 
